@@ -12,8 +12,22 @@ const guildId = process.env.GUILD_ID;
 client.once("ready", async () => {
   console.log("BOT is ready");
 
-  await client.application.commands.create(commands.data.toJSON(), guildId);
+  const guild = client.guilds.cache.get(guildId);
+
+  await client.application.commands.set([]);
+  await guild.commands.create(commands.data.toJSON());
 });
+
+interface AppState {
+  users: Array<{
+    id: string;
+    isReplyStandUp: boolean;
+  }>;
+}
+
+const state: AppState = {
+  users: [],
+};
 
 client.on("interactionCreate", async (interaction) => {
   if (!interaction.isCommand()) return;
@@ -27,4 +41,5 @@ client.on("messageCreate", (message) => {
   if (message.author.bot) return;
 
   message.reply("Hello!!");
+  // message.author.send("hello bro, sneaking into dms");
 });
