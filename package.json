@@ -1,0 +1,24 @@
+{
+  "name": "StandBot",
+  "version": "0.0.1",
+  "description": "A bot to automate stand up",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@types/node": "^18.7.18",
+    "discord.js": "^14.9.0",
+    "dotenv": "^16.0.3",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0"
+  },
+  "keywords": [],
+  "author": "JohnCosta27",
+  "license": "MIT",
+  "devDependencies": {
+    "discord-api-types": "^0.37.40",
+    "typescript": "^5.0.4"
+  }
+}
